@@ -6,7 +6,10 @@ fun main() {
 }
 
 fun ipv4Cgecker(ip:String):Boolean{
-    if(!correctChars(ip) || !correctNumberOfSegments(ip) || !correctSegments(ip)){
+    val ipWithNoStartOrEndSpaces=checkSpaces(ip)
+    if(!correctChars(ipWithNoStartOrEndSpaces)
+        || !correctNumberOfSegments(ipWithNoStartOrEndSpaces)
+        || !correctSegments(ipWithNoStartOrEndSpaces)){
         return false
     }
     return true
@@ -19,6 +22,15 @@ fun correctChars(ip:String):Boolean{
         }
     }
     return true
+}
+fun checkSpaces(ip:String):String{
+    while(ip.startsWith(" ")){
+        ip.trimStart()
+    }
+    while(ip.endsWith(" ")){
+        ip.trimEnd()
+    }
+        return ip
 }
 
 fun correctNumberOfSegments(ip:String):Boolean{
