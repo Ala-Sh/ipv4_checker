@@ -133,8 +133,14 @@ fun test_ipv4CheckerCases() {
     )
     test_ipv4Checker(
         caseNumber=20,
-        case= "When the string isempty return false",
+        case= "When the string is empty return false",
         result= ipv4Cgecker(""),
+        expectedResult= false
+    )
+    test_ipv4Checker(
+        caseNumber=21,
+        case= "When the string is blank return false",
+        result= ipv4Cgecker(" "),
         expectedResult= false
     )
     //add test case for wrong segments
